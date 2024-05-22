@@ -21,4 +21,6 @@ public partial class Cliente
     /// 0:Inactivo ; 1:Activo
     /// </summary>
     public int Estado { get; set; }
+
+    public virtual ICollection<Recepcionequipo> Recepcionequipos { get; set; } = new List<Recepcionequipo>();
 }

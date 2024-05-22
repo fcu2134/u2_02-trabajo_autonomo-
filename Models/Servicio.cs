@@ -1,14 +1,7 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
-using Microsoft.EntityFrameworkCore;
-using System;
+﻿using System;
 using System.Collections.Generic;
 
 namespace projecto_net.Models;
-
-
-
-
 
 public partial class Servicio
 {
@@ -26,6 +19,10 @@ public partial class Servicio
     public int Estado { get; set; }
 
     public int UsuarioId { get; set; }
+
+    public virtual ICollection<Descripcionservicio> Descripcionservicios { get; set; } = new List<Descripcionservicio>();
+
+    public virtual ICollection<Recepcionequipo> Recepcionequipos { get; set; } = new List<Recepcionequipo>();
 
     public virtual Usuario Usuario { get; set; } = null!;
 }
