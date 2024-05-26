@@ -54,13 +54,11 @@ namespace projecto_net.Controllers
         }
 
         // POST: Recepcionequipoes/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,ServicioId,ClienteId,Fecha,TipoPc,Accesorio,MarcaPc,ModeloPc,Nserie,CapacidadRam,Tipoalmacenamiento,CapacidadAlmacenamiento,Tipogpu,Grafica")] Recepcionequipo recepcionequipo)
         {
-            if (recepcionequipo.Id !=null && recepcionequipo.ServicioId != 0)
+            if (recepcionequipo.Id != 0 && recepcionequipo.ServicioId != 0 &&recepcionequipo.Fecha !=null && recepcionequipo.TipoPc !=0 && recepcionequipo.Accesorio != null && recepcionequipo.MarcaPc != null && recepcionequipo.ModeloPc !=null && recepcionequipo.Nserie != null && recepcionequipo.CapacidadRam != 0 && recepcionequipo.Tipoalmacenamiento != 0 && recepcionequipo.CapacidadAlmacenamiento != null && recepcionequipo.Tipogpu != 0 && recepcionequipo.Grafica != null) 
             {
                 _context.Add(recepcionequipo);
                 await _context.SaveChangesAsync();
@@ -69,7 +67,6 @@ namespace projecto_net.Controllers
             ViewData["ClienteId"] = new SelectList(_context.Clientes, "Id", "Id", recepcionequipo.ClienteId);
             ViewData["ServicioId"] = new SelectList(_context.Servicios, "Id", "Id", recepcionequipo.ServicioId);
             return View(recepcionequipo);
-           
         }
 
         // GET: Recepcionequipoes/Edit/5
@@ -91,8 +88,6 @@ namespace projecto_net.Controllers
         }
 
         // POST: Recepcionequipoes/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("Id,ServicioId,ClienteId,Fecha,TipoPc,Accesorio,MarcaPc,ModeloPc,Nserie,CapacidadRam,Tipoalmacenamiento,CapacidadAlmacenamiento,Tipogpu,Grafica")] Recepcionequipo recepcionequipo)
@@ -100,6 +95,14 @@ namespace projecto_net.Controllers
             if (id != recepcionequipo.Id)
             {
                 return NotFound();
+            }
+             
+            if (ModelState.IsValid)
+            {
+                ModelState.AddModelError("", "Todos los campos deben ser válidos.");
+                ViewData["ClienteId"] = new SelectList(_context.Clientes, "Id", "Id", recepcionequipo.ClienteId);
+                ViewData["ServicioId"] = new SelectList(_context.Servicios, "Id", "Id", recepcionequipo.ServicioId);
+                return View(recepcionequipo);
             }
 
             if (ModelState.IsValid)
