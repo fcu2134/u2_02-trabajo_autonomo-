@@ -57,7 +57,7 @@ namespace projecto_net.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,ServicioId,ClienteId,Fecha,TipoPc,Accesorio,MarcaPc,ModeloPc,Nserie,CapacidadRam,Tipoalmacenamiento,CapacidadAlmacenamiento,Tipogpu,Grafica")] Recepcionequipo recepcionequipo)
-        {
+        {   
             if (recepcionequipo.Id != 0 && recepcionequipo.ServicioId != 0 &&recepcionequipo.Fecha !=null && recepcionequipo.TipoPc !=0 && recepcionequipo.Accesorio != null && recepcionequipo.MarcaPc != null && recepcionequipo.ModeloPc !=null && recepcionequipo.Nserie != null && recepcionequipo.CapacidadRam != 0 && recepcionequipo.Tipoalmacenamiento != 0 && recepcionequipo.CapacidadAlmacenamiento != null && recepcionequipo.Tipogpu != 0 && recepcionequipo.Grafica != null) 
             {
                 _context.Add(recepcionequipo);

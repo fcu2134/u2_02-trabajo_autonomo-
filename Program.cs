@@ -8,7 +8,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 
 builder.Services.AddDbContext<MercyDeveloperContext>(options =>
-
+    
     options.UseMySql(builder.Configuration.GetConnectionString("conexion"),
         Microsoft.EntityFrameworkCore.ServerVersion.Parse("10.4.32-mariadb")
     ));

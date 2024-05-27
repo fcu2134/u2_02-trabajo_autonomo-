@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace projecto_net.Models;
 
 public partial class Cliente
-{
+{ //esto son los modelos de las tablas , aca puedes agregar validadores o requirimientos por ejemplo 
     public int Id { get; set; }
-
+    [Required]  
     public string Nombre { get; set; } = null!;
 
     public string Apellido { get; set; } = null!;

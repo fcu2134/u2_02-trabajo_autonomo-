@@ -57,8 +57,8 @@ namespace projecto_net.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,Nombre,Precio,Sku,Estado,UsuarioId")] Servicio servicio)
-        {
-            if (servicio.Nombre !=null && servicio.Precio !=0)
+        {    
+            if (servicio.Nombre !=null && servicio.Precio !=0 && servicio.Sku !=null && servicio.Estado !=0 && servicio.UsuarioId !=0)
             {
                 _context.Add(servicio);
                 await _context.SaveChangesAsync();
