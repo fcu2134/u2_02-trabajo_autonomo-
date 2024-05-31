@@ -16,4 +16,5 @@ public partial class Usuario
     public string? Password { get; set; }
 
     public virtual ICollection<Servicio> Servicios { get; set; } = new List<Servicio>();
+    public object Contraseña { get; internal set; }
 }

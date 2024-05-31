@@ -97,7 +97,7 @@ namespace projecto_net.Controllers
                 return NotFound();
             }
 
-            if (ModelState.IsValid)
+            if (descripcionservicio.Id !=0 && descripcionservicio.Nombre !=null && descripcionservicio.ServicioId !=0)
             {
                 try
                 {
