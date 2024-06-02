@@ -7,14 +7,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Content Remove="Views\login\login.cshtml" />
+    <_ContentIncludedByDefault Remove="wwwroot\css\registro.css" />
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="Views\login\login.cshtml" />
-  </ItemGroup>
-
-  <ItemGroup>
+    <PackageReference Include="BCrypt.Net-Next" Version="4.0.3" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="8.0.5">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>

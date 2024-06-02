@@ -115,6 +115,11 @@ namespace projecto_net.Controllers
             return View(usuario);
         }
 
+        private bool UsuarioExists(int? id)
+        {
+            throw new NotImplementedException();
+        }
+
         // GET: Usuarios/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {

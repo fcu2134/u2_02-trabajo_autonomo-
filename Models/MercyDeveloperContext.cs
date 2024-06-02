@@ -25,6 +25,7 @@ public partial class MercyDeveloperContext : DbContext
     public virtual DbSet<Servicio> Servicios { get; set; }
 
     public virtual DbSet<Usuario> Usuarios { get; set; }
+    public Task Usuario { get; internal set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
@@ -170,7 +171,7 @@ public partial class MercyDeveloperContext : DbContext
             entity.HasKey(e => e.Id).HasName("PRIMARY");
 
             entity.ToTable("usuario");
-
+    
             entity.Property(e => e.Id).HasColumnType("int(11)");
             entity.Property(e => e.Apellido).HasMaxLength(45);
             entity.Property(e => e.Correo).HasMaxLength(45);

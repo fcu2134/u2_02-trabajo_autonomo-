@@ -1,7 +1,10 @@
 using Microsoft.AspNetCore.Mvc;
 using projecto_net.Models;
 using System.Diagnostics;
-
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.CodeAnalysis.CSharp.Syntax;
 namespace projecto_net.Controllers
 {
     public class HomeController : Controller
@@ -28,5 +31,12 @@ namespace projecto_net.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
+        public async Task<IActionResult> cierre()
+        {
+            await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
+            return RedirectToAction("Index", "Login");
+
+        }
+          
     }
 }
