@@ -84,7 +84,10 @@ namespace projecto_net.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Index(Login login)
         {
-            Usuario? usuario_encontrado = await _context.Usuarios
+            Usuario?
+//verifica si el usuario existe
+
+ usuario_encontrado = await _context.Usuarios
                                  .Where(u => u.Correo == login.Correo && u.Password == login.Password  )
                                  .FirstOrDefaultAsync();
 
