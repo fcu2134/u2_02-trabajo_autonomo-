@@ -96,6 +96,9 @@ namespace projecto_net.Controllers
             }
 
    //método para guardar la autenticación para que después me diga el usuario a ingresado (te muestra un mensaje en la página de inicio ),esto lo llamamos en el index con un 
+//if(){                    @User.Claims.Where(c => c.Type == ClaimTypes.Name).Select(c => c.Value).SingleOrDefault()}
+
+
             List <Claim>claims= new List<Claim>()
                 {
                     new Claim(ClaimTypes.Name,usuario_encontrado.Nombre),
